@@ -139,7 +139,7 @@ const login = async (req, res) => {
 
 const logout = async (req, res) => {
   try {
-    res.clearCookie("jwt-netflix"); // Clearing the cookie
+    res.clearCookie("jwt-vid"); // Clearing the cookie
     return res.status(200).json({
       success: true,
       message: "User logged out successfully",

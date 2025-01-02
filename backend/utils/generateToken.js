@@ -6,7 +6,7 @@ const generator = (id, res) => {
     expiresIn: "3h",
   });
 
-  res.cookie("jwt-netflix", token, {
+  res.cookie("jwt-vid", token, {
     maxAge: 3 * 60 * 60 * 1000, // 3 hours in milliseconds
     httpOnly: true, // This pervients the cookie from being accessed by javascript
     sameSite: "strict", // This pervients CSRF attacks by not allowing the cookie to be sent by a third party
