@@ -153,4 +153,19 @@ const logout = async (req, res) => {
   }
 };
 
-export { signup, login, logout };
+const authCheck = async (req, res) => {
+  try {
+    return res.status(200).json({
+      success: true,
+      user: req.user,
+    });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({
+      success: false,
+      mseeage: "Internal server error",
+    });
+  }
+};
+
+export { signup, login, logout, authCheck };

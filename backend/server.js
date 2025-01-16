@@ -1,6 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
+import cors from "cors";
 
 import authRoutes from "./routes/auth.route.js";
 import movieRoutes from "./routes/movie.route.js";
@@ -16,6 +17,12 @@ const server = express();
 dotenv.config();
 const port = ENV_VARS.PORT;
 
+server.use(
+  cors({
+    origin: ["http://localhost:5173", "http://localhost:5174"],
+    credentials: true,
+  })
+);
 server.use(express.json()); // allows us to parss req.body in json format
 server.use(cookieParser()); // allows us to parse cookies
 
